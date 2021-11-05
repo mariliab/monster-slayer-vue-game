@@ -36,7 +36,7 @@ const app = Vue.createApp({
       } else if (value <= 0) {
         this.theWinner = "monster";
         this.gameLog.push({
-          text: "Monster wins!",
+          text: "wins!",
           player: "monster",
         });
       }
@@ -47,7 +47,7 @@ const app = Vue.createApp({
       } else if (value <= 0) {
         this.theWinner = "you";
         this.gameLog.push({
-          text: "Player wins!",
+          text: "wins!",
           player: "player",
         });
       }
@@ -65,9 +65,7 @@ const app = Vue.createApp({
       this.currentRound++;
       const attackValue = getRandomValue(5, 12);
       this.gameLog.push({
-        text: `Player attacks monster with a force of ${Math.floor(
-          attackValue
-        )}`,
+        text: `attacks monster with a force of ${Math.floor(attackValue)}`,
         player: "player",
       });
       this.monsterHealth -= attackValue;
@@ -76,9 +74,7 @@ const app = Vue.createApp({
     attackPlayer() {
       const attackValue = getRandomValue(8, 15);
       this.gameLog.push({
-        text: `Monster attacks player with a force of ${Math.floor(
-          attackValue
-        )}`,
+        text: `attacks player with a force of ${Math.floor(attackValue)}`,
         player: "monster",
       });
       this.playerHealth -= attackValue;
@@ -87,7 +83,7 @@ const app = Vue.createApp({
       this.currentRound++;
       const attackValue = getRandomValue(10, 25);
       this.gameLog.push({
-        text: `Player SPECIAL attacks monster with a force of ${Math.floor(
+        text: `SPECIAL attacks monster with a force of ${Math.floor(
           attackValue
         )}`,
         player: "player",
@@ -99,7 +95,7 @@ const app = Vue.createApp({
       this.currentRound++;
       const healValue = getRandomValue(8, 20);
       this.gameLog.push({
-        text: `Heal player with ${Math.floor(healValue)}`,
+        text: `heals with ${Math.floor(healValue)}`,
         player: "player",
       });
       if (this.playerHealth + healValue > 100) {
