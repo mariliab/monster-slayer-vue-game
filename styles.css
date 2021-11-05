@@ -64,16 +64,19 @@ input {
 label {
   font-weight: bold;
 }
+span.player {
+  font-weight: bold;
+  text-transform: capitalize;
+}
 
 ul {
   list-style: none;
-  margin: 1rem 0;
+  margin: 1rem 0 0;
   padding: 0;
 }
 
-li {
+li:not(:last-child) {
   margin-bottom: 0.5rem;
-  /* border-bottom: 1px solid #ccc; */
 }
 
 #log ul li.player {
@@ -125,6 +128,9 @@ button {
   font-weight: bold;
   font-size: small;
   flex-grow: 1;
+}
+#game-controls-buttons button {
+  margin-bottom: 0;
 }
 button#play-again {
   background: white;

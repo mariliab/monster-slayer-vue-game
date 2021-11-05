@@ -63,7 +63,8 @@
             key="index"
             :class="getClass(logEvent.player)"
           >
-            {{ logEvent.text }}
+            <span class="player">{{ logEvent.player }} </span> {{ logEvent.text
+            }}
           </li>
         </ul>
         <div v-else>...</div>
