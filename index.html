@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My first Vue App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;700&family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header><h1>Monster Slayer</h1></header>
+    <div id="game">
+      <section id="monster">
+        <h2>Monster health</h2>
+        <div class="healthbar">
+          <div
+            class="healthbar__value"
+            v-model="mosterHealth"
+            :style="monsterBarStyles"
+          ></div>
+        </div>
+      </section>
+      <section id="you">
+        <h2>Your health</h2>
+        <div class="healthbar">
+          <div
+            class="healthbar__value"
+            v-model="playerHealth"
+            :style="playerBarStyles"
+          ></div>
+        </div>
+      </section>
+      <section id="game-over" v-if="theWinner">
+        <h2>Game over!</h2>
+        <p v-if="theWinner === 'monster'">You lost!</p>
+        <p v-else-if="theWinner === 'you'">You won!</p>
+        <p v-else-if="theWinner === 'draw'">You both lost!</p>
+        <button id="play-again" @click="playAgain">Play again?</button>
+      </section>
+      <section id="game-controls" v-else>
+        <h3>Game controls</h3>
+        <div id="game-controls-buttons">
+          <button @click="attackMonster">Attack</button>
+          <button :disabled="specialAttackAvailable" @click="specialAttack">
+            Special attack
+          </button>
+          <button @click="healPlayer">Heal</button>
+          <button @click="surrender">Surrender</button>
+        </div>
+      </section>
+      <section id="log">
+        <h3>Game log</h3>
+        <ul v-if="gameLog.length > 0">
+          <li
+            v-for="(logEvent, index) in gameLog"
+            key="index"
+            :class="getClass(logEvent.player)"
+          >
+            {{ logEvent.text }}
+          </li>
+        </ul>
+        <div v-else>...</div>
+      </section>
+    </div>
+  </body>
+</html>

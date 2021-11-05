@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
+  font-family: "Playfair Display", serif;
+  font-family: "Josefin Sans", sans-serif;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: white;
+  padding-top: 1rem;
+  text-transform: uppercase;
+}
+
+body {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+#game,
+#game-over {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+#game-over {
+  background: darkolivegreen;
+}
+
+section {
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+  border-radius: 1rem;
+}
+
+label,
+input {
+  margin-bottom: 0.5rem;
+  display: block;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  /* border-bottom: 1px solid #ccc; */
+}
+
+#log ul li.player {
+  color: green;
+}
+
+#log ul li.monster {
+  color: red;
+}
+
+.healthbar {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(172, 130, 102, 1) 33%,
+    rgba(100, 255, 100, 1) 100%
+  );
+  height: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.healthbar__value {
+  width: 0;
+  background: lightgray;
+  height: 2rem;
+  float: right;
+  border-radius: 0 1rem 1rem 0;
+  overflow: hidden;
+}
+
+#game-controls-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+button {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: darkolivegreen;
+  box-shadow: 0;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: small;
+  flex-grow: 1;
+}
+button#play-again {
+  background: white;
+  color: black;
+  margin-bottom: 0;
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+button:disabled {
+  background: lightgray;
+}
